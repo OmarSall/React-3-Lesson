@@ -34,6 +34,7 @@ export default function UserProfile() {
                 type="text"
                 name="lastName"
                 placeholder="Last Name"
+                value={user.lastName}
                 onChange={handleChange}
             />
             <button onClick={handleSubmit}>Submit</button>

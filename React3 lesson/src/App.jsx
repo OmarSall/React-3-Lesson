@@ -15,7 +15,6 @@ function App() {
                 <Weather />
                 <h1>FrontEnd - BackEnd App</h1>
                 <ToggleWords />
-
             </div>
         </>
     )

@@ -1,11 +1,16 @@
 import { useState } from "react";
 import { TemperatureAtCoordinates } from "./TemperatureAtCoordinates";
 
+const TEMPERATURE_TYPES = [
+    {label: "Apparent Temperature", value: "apparent_temperature"},
+    {label: "Real Temperature", value: "temperature_2m"}
+]
+
 export const Weather = () => {
     // Default values for Warsaw
     const [latitude, setLatitude] = useState(52.22);
     const [longitude, setLongitude] = useState(21.01);
-    const [temperatureType, setTemperatureType] = useState("apparent_temperature");
+    const [temperatureType, setTemperatureType] = useState(TEMPERATURE_TYPES[0].value);
 
     return (
         <div>
@@ -25,8 +30,11 @@ export const Weather = () => {
                 value={temperatureType}
                 onChange = {(event) => setTemperatureType(event.target.value)}
             >
-                <option value="apparent_temperature">Apparent Temperature</option>
-                <option value="temperature_2m">Real Temperature</option>
+                {TEMPERATURE_TYPES.map((type) => (
+                    <option key={type.value} value={type.value}>
+                        {type.label}
+                    </option>
+                ))}
             </select>
 
             <TemperatureAtCoordinates
